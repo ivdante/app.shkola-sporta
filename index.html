@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+		.background {
+			display:block; 
+			text-align:center; 
+			width:100%;
+			height:100%;
+			padding:0;
+			margin:0;
+			box-sizing: content-box;
+		}
+		
+		.wrapper {
+			/*display: block;*/
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 40%;
+			width:100%;
+			vertical-align: middle;
+		}
+		
+		#androidAppLink, 
+		#iosAppLink {
+			display: block;
+			position: relative;
+			width: 300px; 
+			height: 88px; 
+			padding: 5px;
+			margin: 8px auto;
+			/*border-radius: 4px;
+			background: rgba(230, 230, 230, 0.5);
+			box-shadow: 0 0 5px 2px rgba(128, 128, 128, 0.5);*/
+		}
+		
+		/* #androidAppLink:hover, 
+		#androidAppLink:focus,
+		#androidAppLink:active,
+		#iosAppLink:hover,
+		#iosAppLink:focus,
+		#iosAppLink:active {
+			background: rgba(173, 216, 230, 0.7);
+		} */
+		
+		.fill-image {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		.app-image {
+			height: auto;
+			margin: 0;
+			padding: 0;
+		}
+		.iOSinfo {
+			font-family: 'Roboto', sans-serif;
+			font-size: large;
+			padding-top: 20px;
+			padding-bottom: 0;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="background">
+		
+		<div style="display:block; position:absolute; height:40%; max-height: fit-content; top:0; left:0; right:0; background: url('./logo.png') no-repeat center top; background-size:contain; padding:0; margin:0;"></div>
+	
+		<div class="wrapper">
+
+			<!-- Shkola sporta -->
+
+			
+			<!-- SHKOLA GOOGLE -->
+			<a id="androidAppLink" style="display: none;" href="https://play.google.com/store/apps/details?id=com.mobifitness.sportshkola820748">
+				<div class="fill-image" style='background: url("./google-play3.png") no-repeat center top; background-size:contain;'></div>
+			</a>
+
+			<!-- SHKOLA HUAWEI -->
+			<a id="androidAppLink" style="display: none;" href="https://appgallery.huawei.com/#/app/C107283953">
+				<div class="fill-image" style='background: url("./appgallery3.png") no-repeat center top; background-size:contain; margin: auto; width:88%'></div>
+			</a>
+			
+			<!-- Mobifitness -->
+			<a id="MobiAppImg" >
+				<p class="iOSinfo">Для пользователей iOS/Android через агрегатор Mobifitness</p>
+				<img class="app-image" src="./app_mobi.png" alt="Мобифитнесс">
+			</a>
+
+			<!-- MOBI GOOGLE -->
+			<a id="androidAppLink" style="display: none;" href="https://play.google.com/store/apps/details?id=com.itrack.mobifitnessdemo756171">
+				<div class="fill-image" style='background: url("./google-play3.png") no-repeat center top; background-size:contain;'></div>
+			</a>
+			
+			<!-- MOBI HUAWEI -->
+			<a id="androidAppLink" style="display: none;" href="https://appgallery.huawei.com/app/C101151301">
+				<div class="fill-image" style='background: url("./appgallery3.png") no-repeat center top; background-size:contain; margin: auto; width:88%'></div>
+			</a>
+
+			<!-- MOBI APPLE -->
+			<a id="iosAppLink" style="display: none;" href="https://apps.apple.com/ru/app/mobifitness/id986278836">
+				<div class="fill-image" style='background: url("./app_store3.png") no-repeat center top; background-size:contain;'></div>
+			</a>
+
+			
+
+
+		</div>
+	
+	</div>
+	
+	<script>
+		var androidLink = document.getElementById("androidAppLink");
+		var iosLink = document.getElementById("iosAppLink");
+
+		var androidLinks = document.getElementsByClassName("androidAppLink");
+		var iosLinks = document.getElementsByClassName("iosAppLink");
+		
+		
+
+		var userAgent = (navigator.userAgent+"").toLowerCase();
+		var isIos = /ipad|iphone|ipod|ios/.test(userAgent);
+		var isAndroid = /android/.test(userAgent);
+		var isOther = !isIos && !isAndroid;
+		
+		//var androidDisplay = isAndroid || isOther ? "block": "none";
+		//var iosDisplay = isIos || isOther ? "block": "none";
+		
+
+		var isAndroidDisplay = isAndroid || isOther ? true: false;
+		var isIosDisplay = isIos || isOther ? true: false;
+
+		if(isAndroidDisplay) document.querySelectorAll("#androidAppLink").forEach(a=>a.style.display = "block");
+		if(isIosDisplay) document.querySelectorAll("#iosAppLink").forEach(a=>a.style.display = "block");
+
+		//androidLink.style.display = androidDisplay;
+		//iosLink.style.display = iosDisplay;
+	</script>
+	
+
+
+</body></html>
